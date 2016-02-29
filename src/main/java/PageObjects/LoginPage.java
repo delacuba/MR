@@ -1,5 +1,6 @@
 package PageObjects;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -15,17 +16,19 @@ public class LoginPage {
     By authButton = By.id("mailbox__auth__button");
     By logoLogin = By.className("logo__link__img logo__link__img_medium");
 
-
+    private static final Logger log = Logger.getLogger(LoginPage.class);
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
     }
 
     public void setUserName(String strUserName){
+        log.info("Sets user name");
         driver.findElement(userName).sendKeys(strUserName);
     }
 
     public void setPassword(String strPassword){
+        log.info("Sets password");
         driver.findElement(password).sendKeys(strPassword);
     }
 
